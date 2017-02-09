@@ -17,9 +17,9 @@ now = client.get_board(secrets.now_boad)
 today = now.get_list(secrets.today_list)
 
 for i, card in enumerate(today.list_cards(), start=1):
-    card_format = '{}. {}'.format(i, card.name)
+    card_format = '{}{}. {}'.format(COLOR_TASK, i, card.name)
 
-    print(COLOR_TASK, card_format)
+    print(card_format)
     for checklist in card.fetch_checklists():
         if checklist.name != 'Checklist':
             print(COLOR_CHECKLIST, '   ', checklist.name)
